@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Form In HTML and CSS</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+</head>
+<body>
+
+<div class="wrapper">
+    <div class="r_form_wrap">
+        
+        <div class="title">
+            <p>Registration Form</p>
+        </div>
+
+        <div class="r_form">
+            <form onsubmit="return validateForm()">
+                <div class="input_wrap">
+                    <label for="username">Username</label>
+                    <div class="input_item">
+                        <span class="icon">
+                            <ion-icon name="person-sharp"></ion-icon>
+                        </span>
+                        <input type="text" name="username" class="input" id="username" pattern="[a-zA-Z0-9]+" title="Username must contain only letters and numbers" required>
+                    </div>
+                </div>
+                <div class="input_wrap">
+                    <label for="yourname">Your Name</label>
+                    <div class="input_item">
+                        <span class="icon">
+                            <ion-icon name="person-sharp"></ion-icon>
+                        </span>
+                        <input type="text" name="your name" class="input" id="yourname">
+                    </div>
+                </div>
+                <div class="input_wrap">
+                    <label for="emailaddress">Email Address</label>
+                    <div class="input_item">
+                        <span class="icon">
+                            <ion-icon name="mail-sharp"></ion-icon>
+                        </span>
+                        <input type="email" name="email address" class="input" id="emailaddress" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Enter a valid email address" required>
+                    </div>
+                </div>
+                <div class="input_wrap">
+                    <label for="password">Password</label>
+                    <div class="input_item">
+                        <span class="icon">
+                            <ion-icon name="key-sharp"></ion-icon>
+                        </span>
+                        <input type="password" name="password" class="input" id="password" required>
+                    </div>
+                </div>
+                <div class="input_wrap">
+                    <label for="confirmpassword">Confirm Password</label>
+                    <div class="input_item">
+                        <span class="icon">
+                            <ion-icon name="key-sharp"></ion-icon>
+                        </span>
+                        <input type="password" name="confirm password" class="input" id="confirmpassword" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Passwords must be at least 8 characters long and contain at least one number, one uppercase letter, and one lowercase letter" oninput="checkPasswordMatch()">
+                    </div>
+                    <div id="passwordMatch"></div>
+                </div>
+                <div class="input_wrap">
+                    <label for="phone">Phone</label>
+                    <div class="input_item">
+                        <span class="icon">
+                            <ion-icon name="call-sharp"></ion-icon>
+                        </span>
+                        <input type="tel" name="phone" class="input" id="phone" pattern="[0-9]{10}" title="Phone number must be 10 digits" required>
+                    </div>
+                </div>
+                <div class="input_wrap">
+                    <label>Gender</label>
+                    <div class="input_radio">
+                        <div class="input_radio_item">
+                            <input type="radio" id="male" name="gender" class="radio" value="male">
+                            <label for="male" class="radio_mark">
+                                <ion-icon class="i" name="male-sharp"></ion-icon>
+                            Male</label>
+                        </div>
+                        <div class="input_radio_item">
+                            <input type="radio" id="female" name="gender" class="radio" value="female">
+                            <label for="female" class="radio_mark">
+                                <ion-icon class="i" name="female-sharp"></ion-icon>
+                                Female</label>
+                        </div>
+                        <div class="input_radio_item">
+                            <input type="radio" id="others" name="gender" class="radio" value="others">
+                            <label for="others" class="radio_mark">
+                                <ion-icon class="i" name="male-female-sharp"></ion-icon>
+                                Others</label>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit">Register Now</button>
+            </form>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    function checkPasswordMatch() {
+        var password = document.getElementById("password").value;
+        var confirmPassword = document.getElementById("confirmpassword").value;
+        if (password != confirmPassword) {
+            document.getElementById("passwordMatch").innerHTML = "Passwords do not match!";
+        } else {
+            document.getElementById("passwordMatch").innerHTML = "";
+        }
+    }
+</script>
+
+</body>
+</html>
